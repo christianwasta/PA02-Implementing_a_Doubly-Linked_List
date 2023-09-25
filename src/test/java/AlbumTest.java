@@ -50,4 +50,18 @@ public class AlbumTest {
         assertEquals(-1, list.getIndex(5));
     }
 
+    @Test
+    public void testShuffle(){
+        DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
+        list.append(1);
+        list.append(2);
+        list.append(3);
+        list.append(4);
+        list.shuffle();
+        assertNotEquals("1 -> 2 -> 3 -> 4 -> NULL", list.toString());
+        System.out.println(list.toString());
+    }
+
+
+
 }

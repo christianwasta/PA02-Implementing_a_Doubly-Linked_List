@@ -105,6 +105,24 @@ public class DoublyLinkedList<T> {
         return -1;
     }
 
+    public int shuffle() {
+        Node<T> current = head;
+        int random = (int) (Math.random() * size);
+
+        for (int i = 0; i < size; i++) {
+            Node<T> randomNode = head;
+            for (int j = 0; j < random; j++) {
+                randomNode = randomNode.next;
+            }
+            Node<T> temp = new Node<>(current.data);
+            current.data = randomNode.data;
+            randomNode.data = temp.data;
+            current = current.next;
+        }
+        System.out.println(random);
+        return random;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
