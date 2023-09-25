@@ -123,6 +123,19 @@ public class DoublyLinkedList<T> {
         return random;
     }
 
+    public DoublyLinkedList<T> partition(T data){
+        DoublyLinkedList<T> newList = new DoublyLinkedList<>();
+        Node current = head;
+        while (current != null) {
+            if (((Comparable<T>) current.data).compareTo(data) >= 0) {
+                newList.append((T) current.data);
+                delete(getIndex((T) current.data));
+            }
+            current = current.next;
+        }
+        return newList;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();

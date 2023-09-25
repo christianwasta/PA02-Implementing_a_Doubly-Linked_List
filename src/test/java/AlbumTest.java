@@ -49,7 +49,6 @@ public class AlbumTest {
         assertEquals(3, list.getIndex(4));
         assertEquals(-1, list.getIndex(5));
     }
-
     @Test
     public void testShuffle(){
         DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
@@ -62,6 +61,16 @@ public class AlbumTest {
         System.out.println(list.toString());
     }
 
-
-
+    @Test
+    public void testPartition(){
+        DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
+        list.append(1);
+        list.append(2);
+        list.append(3);
+        list.append(4);
+        DoublyLinkedList<Integer> newList = list.partition(3);
+        assertEquals("3 -> 4 -> NULL", newList.toString());
+        assertEquals("1 -> 2 -> NULL", list.toString());
+        System.out.println(newList.toString());
+    }
 }
