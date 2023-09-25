@@ -92,4 +92,47 @@ public class AlbumTest {
         assertEquals("ID: 1 - - 10 - - [ArtistName] -> ID: 2 - - 15 - - [ArtistName2] -> NULL", list.toString());
     }
 
+    @Test
+    public void testInsertAlbum() {
+        DoublyLinkedList<Album> list = new DoublyLinkedList<>();
+        List<String> artists1 = new ArrayList<>();
+        artists1.add("Wasta");
+        Album album1 = new Album(1, artists1, "Album One", 10);
+
+        List<String> artists2 = new ArrayList<>();
+        artists2.add("Puth");
+        Album album2 = new Album(2, artists2, "Album Two", 15);
+
+        list.append(album1);
+        list.insert(1, album2);
+
+        assertEquals("ID: 1 - - 10 - - [Wasta] -> ID: 2 - - 15 - - [Puth] -> NULL", list.toString());
+
+        List<String> artists3 = new ArrayList<>();
+        artists3.add("Harris");
+        Album album3 = new Album(3, artists3, "Album Three", 20);
+
+        list.insert(0, album3);
+
+        assertEquals("ID: 3 - - 20 - - [Harris] -> ID: 1 - - 10 - - [Wasta] -> ID: 2 - - 15 - - [Puth] -> NULL", list.toString());
+    }
+
+    @Test
+    public void testDeleteAlbum(){
+        DoublyLinkedList<Album> list = new DoublyLinkedList<>();
+        List<String> artists1 = new ArrayList<>();
+        artists1.add("Wasta");
+        Album album1 = new Album(1, artists1, "Album One", 10);
+        List<String> artists2 = new ArrayList<>();
+        artists2.add("Puth");
+        Album album2 = new Album(2, artists2, "Album Two", 15);
+        list.append(album1);
+        list.append(album2);
+
+        list.delete(1);
+        assertEquals("ID: 1 - - 10 - - [Wasta] -> NULL", list.toString());
+    }
+
+
+
 }

@@ -36,10 +36,6 @@ public class DoublyLinkedList<T> {
         return newNode;
     }
 
-    public boolean isEmpty() {
-        return head == null;
-    }
-
     public Node<T> insert(int location, T data) {
         Node<T> newNode = new Node<>(data);
         if (location == 0) {
