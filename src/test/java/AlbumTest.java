@@ -133,6 +133,54 @@ public class AlbumTest {
         assertEquals("ID: 1 - - 10 - - [Wasta] -> NULL", list.toString());
     }
 
+    @Test
+    public void testGetIndexAlbum(){
+        DoublyLinkedList<Album> list = new DoublyLinkedList<>();
+        List<String> artists1 = new ArrayList<>();
+        artists1.add("Wasta");
+        Album album1 = new Album(1, artists1, "Album One", 10);
+        List<String> artists2 = new ArrayList<>();
+        artists2.add("Puth");
+        Album album2 = new Album(2, artists2, "Album Two", 15);
+        list.append(album1);
+        list.append(album2);
 
+        assertEquals(0, list.getIndex(album1));
+        assertEquals(1, list.getIndex(album2));
+    }
 
+    @Test
+    public void testShuffleAlbum(){
+        DoublyLinkedList<Album> list = new DoublyLinkedList<>();
+        List<String> artists1 = new ArrayList<>();
+        artists1.add("Wasta");
+        Album album1 = new Album(1, artists1, "Album One", 10);
+        List<String> artists2 = new ArrayList<>();
+        artists2.add("Puth");
+        Album album2 = new Album(2, artists2, "Album Two", 15);
+        list.append(album1);
+        list.append(album2);
+
+        list.shuffle();
+        assertNotEquals("ID: 1 - - 10 - - [Wasta] -> ID: 2 - - 15 - - [Puth] -> NULL", list.toString());
+        System.out.println(list.toString());
+    }
+
+    @Test
+    public void testPartitionAlbum(){
+        DoublyLinkedList<Album> list = new DoublyLinkedList<>();
+        List<String> artists1 = new ArrayList<>();
+        artists1.add("Wasta");
+        Album album1 = new Album(1, artists1, "Album One", 10);
+        List<String> artists2 = new ArrayList<>();
+        artists2.add("Puth");
+        Album album2 = new Album(2, artists2, "Album Two", 15);
+        list.append(album1);
+        list.append(album2);
+
+        DoublyLinkedList<Album> newList = list.partition(album2);
+        assertEquals("ID: 2 - - 15 - - [Puth] -> NULL", newList.toString());
+        assertEquals("ID: 1 - - 10 - - [Wasta] -> NULL", list.toString());
+        System.out.println(newList.toString());
+    }
 }
