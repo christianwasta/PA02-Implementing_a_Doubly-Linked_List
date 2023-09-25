@@ -36,6 +36,18 @@ public class AlbumTest {
         assertEquals("1 -> 3 -> NULL", list.toString());
     }
 
-
+    @Test
+    public void testGetIndex(){
+        DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
+        list.append(1);
+        list.append(2);
+        list.append(3);
+        list.append(4);
+        assertEquals(0, list.getIndex(1));
+        assertEquals(1, list.getIndex(2));
+        assertEquals(2, list.getIndex(3));
+        assertEquals(3, list.getIndex(4));
+        assertEquals(-1, list.getIndex(5));
+    }
 
 }
