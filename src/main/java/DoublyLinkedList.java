@@ -7,6 +7,7 @@ public class DoublyLinkedList<T> {
     public DoublyLinkedList() {
         head = null;
         tail = null;
+        size = 0;
     }
 
     public static class Node<T> {

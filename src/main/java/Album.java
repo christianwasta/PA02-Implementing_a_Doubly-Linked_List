@@ -39,7 +39,7 @@ public class Album implements Comparable<Album> {
         if (stringBuilder.length() > 0) {
             stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
         }
-        return String.format("ID: " + id + " - - " + numSongs + " Songs - - [" + stringBuilder.toString() + "]");
+        return String.format("ID: " + id + " - - " + numSongs + " - - [" + stringBuilder.toString() + "]");
     }
 
     @Override

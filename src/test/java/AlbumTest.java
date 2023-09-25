@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AlbumTest {
@@ -73,4 +74,22 @@ public class AlbumTest {
         assertEquals("1 -> 2 -> NULL", list.toString());
         System.out.println(newList.toString());
     }
+
+    @Test
+    public void testAppendAlbum() {
+        DoublyLinkedList<Album> list = new DoublyLinkedList<>();
+        List<String> artists1 = new ArrayList<>();
+        artists1.add("ArtistName");
+        Album album1 = new Album(1, artists1, "Album One", 10);
+
+        List<String> artists2 = new ArrayList<>();
+        artists2.add("ArtistName2");
+        Album album2 = new Album(2, artists2, "Album Two", 15);
+
+        list.append(album1);
+        list.append(album2);
+
+        assertEquals("ID: 1 - - 10 - - [ArtistName] -> ID: 2 - - 15 - - [ArtistName2] -> NULL", list.toString());
+    }
+
 }
