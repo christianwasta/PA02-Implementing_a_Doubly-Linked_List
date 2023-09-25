@@ -92,6 +92,19 @@ public class DoublyLinkedList<T> {
         return toDelete;
     }
 
+    public int getIndex(T data) {
+        Node<T> current = head;
+        int index = 0;
+        while (current != null) {
+            if (current.data.equals(data)) {
+                return index;
+            }
+            current = current.next;
+            index++;
+        }
+        return -1;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
