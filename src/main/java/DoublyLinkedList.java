@@ -69,6 +69,29 @@ public class DoublyLinkedList<T> {
         return newNode;
     }
 
+    public Node<T> delete(int location) {
+        Node<T> toDelete = null;
+        if (location == 0) {
+            toDelete = head;
+            head = head.next;
+            head.prev = null;
+        } else if (location == size - 1) {
+            toDelete = tail;
+            tail = tail.prev;
+            tail.next = null;
+        } else {
+            Node<T> current = head;
+            for (int i = 0; i < location - 1; i++) {
+                current = current.next;
+            }
+            toDelete = current.next;
+            current.next = current.next.next;
+            current.next.prev = current;
+        }
+        size--;
+        return toDelete;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();

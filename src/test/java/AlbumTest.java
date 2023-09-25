@@ -22,4 +22,19 @@ public class AlbumTest {
         list.insert(0,0);
         assertEquals("0 -> 1 -> 2 -> NULL", list.toString());
     }
+
+    @Test
+    public void testDelete(){
+        DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
+        list.append(1);
+        list.append(2);
+        list.append(3);
+        list.append(4);
+        list.delete(1);
+        assertEquals("1 -> 3 -> 4 -> NULL", list.toString());
+        list.delete(2);
+        assertEquals("1 -> 3 -> NULL", list.toString());
+    }
+
+
 }
