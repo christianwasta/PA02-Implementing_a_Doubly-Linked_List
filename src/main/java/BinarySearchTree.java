@@ -125,5 +125,25 @@ public class BinarySearchTree<T extends Comparable<T>>{
         balancedTree.root.right = buildBalancedTree(inorderList, mid + 1, end).root;
         return balancedTree;
     }
+
+    public List<T> partition(T data){
+        List<T> partitionList = new ArrayList<>();
+        partition(root, data, partitionList);
+        return partitionList;
+    }
+
+    private void partition(Node<T> node, T data, List<T> partitionList){
+        if (node == null){
+            return;
+        }
+        if (node.data.compareTo(data) >= 0){
+            partition(node.left, data, partitionList);
+            partition(node.right, data, partitionList);
+            partitionList.add(node.data);
+        }
+        else {
+            partition(node.right, data, partitionList);
+        }
+    }
 }
 
