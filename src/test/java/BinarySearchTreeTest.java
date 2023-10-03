@@ -35,6 +35,7 @@ class BinarySearchTreeTest {
         bst.insert(70);
         Node<Integer> deleteNode = bst.delete(50);
         System.out.println("Deleted Node:" + deleteNode.data);
+
     }
     @Test
     public void testDelete() {
@@ -49,6 +50,7 @@ class BinarySearchTreeTest {
         Node<Album> deleteNode = bst.delete(album);
         assertNull(bst.root);
         System.out.println("Deleted Node:" + deleteNode.data);
+
     }
 
     @Test
@@ -76,6 +78,7 @@ class BinarySearchTreeTest {
         String expected = "50, 30, 20, N, N, 40, N, N, 70, N, N";
         String actual = bst.toString();
         assertEquals(expected, actual);
+        System.out.println(bst.toString());
     }
 
     @Test
