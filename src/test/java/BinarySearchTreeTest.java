@@ -21,11 +21,21 @@ class BinarySearchTreeTest {
         artists.add("The Beatles");
         artists.add("The Rolling Stones");
         Album album = new Album(1, artists, "The White Album", 30);
+        System.out.println(bst.root);
         bst.insert(album);
         assertEquals(album, bst.root.data);
         System.out.println(bst.root.data);
     }
 
+    @Test
+    public void testDeleteNum(){
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
+        bst.insert(50);
+        bst.insert(30);
+        bst.insert(70);
+        Node<Integer> deleteNode = bst.delete(50);
+        System.out.println("Deleted Node:" + deleteNode.data);
+    }
     @Test
     public void testDelete() {
         BinarySearchTree<Album> bst = new BinarySearchTree<>();
@@ -36,9 +46,9 @@ class BinarySearchTreeTest {
         bst.insert(album);
         System.out.println(bst.root.data);
         assertEquals(album, bst.root.data);
-        bst.delete(album);
+        Node<Album> deleteNode = bst.delete(album);
         assertNull(bst.root);
-        System.out.println(bst.root);
+        System.out.println("Deleted Node:" + deleteNode.data);
     }
 
     @Test

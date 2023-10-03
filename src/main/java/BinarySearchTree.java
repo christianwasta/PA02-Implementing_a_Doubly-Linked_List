@@ -27,13 +27,13 @@ public class BinarySearchTree<T extends Comparable<T>>{
         }
         return node;
     }
-    public T delete(T data){
-        Node<T> deleteNode = new Node<>(data);
+    public Node<T> delete(T data){
+        Node<T> deleteNode = new Node<>(null);
         root = delete(root, data, deleteNode);
         if (deleteNode.data == null){
             throw new IllegalArgumentException("Cannot delete from an empty tree");
         }
-        return deleteNode.data;
+        return deleteNode;
     }
 
     private Node<T> delete(Node<T> node, T data, Node<T> deleteNode){
@@ -45,6 +45,7 @@ public class BinarySearchTree<T extends Comparable<T>>{
         } else if (data.compareTo(node.data) > 0){
             node.right = delete(node.right, data, deleteNode);
         } else {
+            deleteNode.data = node.data;
             if (node.left == null){
                 return node.right;
             } else if (node.right == null){
