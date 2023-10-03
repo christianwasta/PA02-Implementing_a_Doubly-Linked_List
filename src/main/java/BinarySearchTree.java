@@ -24,6 +24,45 @@ public class BinarySearchTree<T extends Comparable<T>>{
         }
         return node;
     }
+    public T delete(T data){
+        Node<T> deleteNode = new Node<>(data);
+        root = delete(root, data, deleteNode);
+        if (deleteNode.data == null){
+            throw new IllegalArgumentException("Cannot delete from an empty tree");
+        }
+        return deleteNode.data;
+    }
+
+    private Node<T> delete(Node<T> node, T data, Node<T> deleteNode){
+        if (node == null){
+            return null;
+        }
+        if (data.compareTo(node.data) < 0){
+            node.left = delete(node.left, data, deleteNode);
+        } else if (data.compareTo(node.data) > 0){
+            node.right = delete(node.right, data, deleteNode);
+        } else {
+            if (node.left == null){
+                return node.right;
+            } else if (node.right == null){
+                return node.left;
+            }
+            node.data = findMin(node.right);
+            node.right = delete(node.right, node.data, deleteNode);
+        }
+        return node;
+    }
+
+    private T findMin(Node<T> node) {
+        T findMin = node.data;
+        while (node.left != null){
+            findMin = node.left.data;
+            node = node.left;
+        }
+        return findMin;
+    }
+
+
 
 }
 
