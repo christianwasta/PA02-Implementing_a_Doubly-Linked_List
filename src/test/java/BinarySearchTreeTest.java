@@ -99,5 +99,23 @@ class BinarySearchTreeTest {
         System.out.println(partitionList);
     }
 
+    @Test
+    public void testPartitionAlbum() {
+        BinarySearchTree<Album> bst = new BinarySearchTree<>();
+        ArrayList<String> artists = new ArrayList<>();
+        artists.add("The Beatles");
+        artists.add("The Rolling Stones");
+        Album album1 = new Album(1, artists, "The White Album", 30);
+        Album album2 = new Album(2, artists, "The White Album", 30);
+
+        bst.insert(album1);
+        bst.insert(album2);
+        List<Album> partitionList = bst.partition(album2);
+        List<Album> partitionList2 = bst.partition(album1);
+        assertEquals(album1, partitionList2.get(1));
+        System.out.println(partitionList2);
+    }
+
+
 
 }
