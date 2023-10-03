@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class BinarySearchTree<T extends Comparable<T>>{
     public Node<T> root;
     private int size;
@@ -79,6 +82,17 @@ public class BinarySearchTree<T extends Comparable<T>>{
         }
     }
 
+    @Override
+    public String toString(){
+        return toString(root);
+    }
+
+    private String toString(Node<T> node){
+        if (node == null){
+            return "N";
+        }
+        return node.data.toString() + ", " + toString(node.left) + ", " + toString(node.right);
+    }
 
 
 }
