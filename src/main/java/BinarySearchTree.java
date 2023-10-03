@@ -94,6 +94,36 @@ public class BinarySearchTree<T extends Comparable<T>>{
         return node.data.toString() + ", " + toString(node.left) + ", " + toString(node.right);
     }
 
+    private Node<T> get(){
+        return root;
+    }
 
+    public BinarySearchTree<T> rebalance(){
+        List<T> inorderList = new ArrayList<>();
+        inOrder(root, inorderList);
+        return buildBalancedTree(inorderList, 0, inorderList.size() - 1);
+    }
+
+    private void inOrder(Node<T> node, List<T> inorderList){
+        if (node == null){
+            return;
+        }
+        inOrder(node.left, inorderList);
+        inorderList.add(node.data);
+        inOrder(node.right, inorderList);
+    }
+
+    private BinarySearchTree<T> buildBalancedTree(List<T> inorderList, int start, int end) {
+        if (start > end) {
+            return new BinarySearchTree<>();
+        }
+        int mid = (start + end) / 2;
+        BinarySearchTree<T> balancedTree = new BinarySearchTree<>();
+        balancedTree.insert(inorderList.get(mid));
+
+        balancedTree.root.left = buildBalancedTree(inorderList, start, mid - 1).root;
+        balancedTree.root.right = buildBalancedTree(inorderList, mid + 1, end).root;
+        return balancedTree;
+    }
 }
 
