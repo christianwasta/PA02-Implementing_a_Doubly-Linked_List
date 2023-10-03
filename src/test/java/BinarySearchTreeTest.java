@@ -86,5 +86,18 @@ class BinarySearchTreeTest {
         assertEquals(album2, newTree.root.right.data);
     }
 
+    @Test
+    public void testPartition() {
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
+        bst.insert(50);
+        bst.insert(30);
+        bst.insert(70);
+        bst.insert(20);
+        bst.insert(40);
+        List<Integer> partitionList = bst.partition(40);
+        assertEquals(40, partitionList.get(0));
+        System.out.println(partitionList);
+    }
+
 
 }
