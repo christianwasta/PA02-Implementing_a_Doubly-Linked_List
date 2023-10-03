@@ -62,6 +62,23 @@ public class BinarySearchTree<T extends Comparable<T>>{
         return findMin;
     }
 
+    public boolean contains(T data){
+        return contains(root, data);
+    }
+
+    private boolean contains(Node<T> node, T data){
+        if (node == null){
+            return false;
+        }
+        if (data.compareTo(node.data) < 0){
+            return contains(node.left, data);
+        } else if (data.compareTo(node.data) > 0){
+            return contains(node.right, data);
+        } else {
+            return true;
+        }
+    }
+
 
 
 }
