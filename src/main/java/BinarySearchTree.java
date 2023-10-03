@@ -12,7 +12,7 @@ public class BinarySearchTree<T extends Comparable<T>>{
         return root;
     }
 
-    public Node<T> insert(Node<T> node, T data){
+    private Node<T> insert(Node<T> node, T data){
         if (node == null){
             node = new Node<>(data);
             return node;
@@ -24,7 +24,6 @@ public class BinarySearchTree<T extends Comparable<T>>{
         }
         return node;
     }
-
 
 }
 

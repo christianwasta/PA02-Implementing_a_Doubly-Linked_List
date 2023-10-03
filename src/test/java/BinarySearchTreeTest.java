@@ -24,6 +24,19 @@ class BinarySearchTreeTest {
         System.out.println(bst.root.data);
     }
 
-
+    @Test
+    public void testDelete() {
+        BinarySearchTree<Album> bst = new BinarySearchTree<>();
+        ArrayList<String> artists = new ArrayList<>();
+        artists.add("The Beatles");
+        artists.add("The Rolling Stones");
+        Album album = new Album(1, artists, "The White Album", 30);
+        bst.insert(album);
+        System.out.println(bst.root.data);
+        assertEquals(album, bst.root.data);
+        bst.delete(album);
+        assertNull(bst.root);
+        System.out.println(bst.root);
+    }
 
 }
