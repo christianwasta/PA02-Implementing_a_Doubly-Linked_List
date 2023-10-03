@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlbumTest {
+public class DoublyLinkedListTest {
 
     @Test
     public void testAppend() {
